@@ -1,4 +1,4 @@
-package com.springweb.app.Rest.Reinforcement;
+package com.springweb.app.Rest.Reinforcement.Controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

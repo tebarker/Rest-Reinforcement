@@ -5,6 +5,7 @@ import com.springweb.app.Rest.Reinforcement.Repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,10 +21,11 @@ public class ApiControllers {
         return "Welcome";
     }
     @PostMapping(value = "/save")
-    public String saveUser(User user){
+    public String saveUser(@RequestBody User user){
+
         //request body Json
-
-
+        userRepo.save(user); //pass in new user and save user to the database
+        return "Saved new user...";
     }
 
     @GetMapping(value = "/users")

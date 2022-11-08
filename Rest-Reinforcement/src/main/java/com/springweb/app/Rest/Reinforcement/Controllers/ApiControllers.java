@@ -32,7 +32,7 @@ public class ApiControllers {
 
     }
 
-    @PutMapping (value = "update/{id}")
+    @PutMapping (value = "/update/{id}")
     public String updateUser(@PathVariable Long id, @RequestBody User user){
         User updatedUser = userRepo.findById(id).get();
         updatedUser.setFirstName(user.getFirstName());
@@ -42,6 +42,13 @@ public class ApiControllers {
         userRepo.save(updatedUser);
         return "User Updated!";
 
+
+    }
+    @DeleteMapping (value = "/delete/{id}")
+    public String deleteUser(@PathVariable Long id){
+        User deletedUser = userRepo.findById(id).get();
+        userRepo.delete(deletedUser);
+        return "Deleted user" + id;
 
     }
 }

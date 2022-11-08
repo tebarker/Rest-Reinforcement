@@ -19,11 +19,16 @@ public class ApiControllers {
     public String getPage() {
         return "Welcome";
     }
-    @PostMapping(value = "/users")
+    @PostMapping(value = "/save")
+    public String saveUser(User user){
+        //request body Json
+
+
+    }
 
     @GetMapping(value = "/users")
-    public List<User> getUsers(){
-        return userRepo.findAll();
+    public List<User> getUsers(){//list of users
+        return userRepo.findAll();//returns all users from the database.
 
     }
 }

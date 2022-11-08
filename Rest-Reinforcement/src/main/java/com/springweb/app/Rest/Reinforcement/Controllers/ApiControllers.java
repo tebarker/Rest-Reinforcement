@@ -23,7 +23,7 @@ public class ApiControllers {
 
         //request body Json
         userRepo.save(user); //pass in new user and save user to the database
-        return "Saved new user...";
+        return "Saved new user!";
     }
 
     @GetMapping(value = "/users")
@@ -33,7 +33,15 @@ public class ApiControllers {
     }
 
     @PutMapping (value = "update/{id}")
-    public String updateUser(@PathVariable int id, @RequestBody User user){
-        
+    public String updateUser(@PathVariable Long id, @RequestBody User user){
+        User updatedUser = userRepo.findById(id).get();
+        updatedUser.setFirstName(user.getFirstName());
+        updatedUser.setLastName(user.getLastName());
+        updatedUser.setEmail(user.getEmail());
+        updatedUser.setOccupation(user.getOccupation());
+        userRepo.save(updatedUser);
+        return "User Updated!";
+
+
     }
 }

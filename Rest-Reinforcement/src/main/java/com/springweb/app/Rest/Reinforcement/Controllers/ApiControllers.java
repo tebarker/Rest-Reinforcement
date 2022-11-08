@@ -48,7 +48,7 @@ public class ApiControllers {
     public String deleteUser(@PathVariable Long id){
         User deletedUser = userRepo.findById(id).get();
         userRepo.delete(deletedUser);
-        return "Deleted user" + id;
+        return "Deleted user " + id;
 
     }
 }
